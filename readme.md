@@ -1,4 +1,4 @@
-# React &lt;Mailto&gt;
+# React &lt;Mailto&gt; [![Build Status](https://travis-ci.org/jasonbellamy/react-mailto.png?branch=master)](https://travis-ci.org/jasonbellamy/react-mailto)
 
 > A react component to create and display a [mailto](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Email_links) link.
 
