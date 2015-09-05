@@ -1,7 +1,7 @@
 {
   "name": "react-mailto",
   "description": "A react component to create and display a mailto link.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/jasonbellamy/react-mailto",
   "author": {
     "name": "Jason Bellamy",
@@ -24,12 +24,15 @@
     "build": "babel -d dist src",
     "clean": "rm -rf dist && mkdir dist",
     "watch": "babel -w -d dist src",
+    "test": "mocha --compilers js:babel/register",
     "preversion": "npm run clean && npm run build",
     "postpublish": "git push && git push --tag"
   },
   "devDependencies": {
     "babel": "^5.8.9",
+    "chai": "^3.2.0",
     "core-js": "^0.9.6",
+    "mocha": "^2.3.0",
     "react": "^0.13.3"
   },
   "keywords": [
