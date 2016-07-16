@@ -1,35 +1,62 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-const Mailto = React.createClass({
+export const toSearchString = (searchParams = {}) => {
+  return Object.keys(searchParams).map(key =>
+    `${key}=${encodeURIComponent(searchParams[key])}`
+  ).join('&');
 
-  propTypes: {
-    email: React.PropTypes.string.isRequired,
-    obfuscate: React.PropTypes.bool
-  },
+};
 
-  getDefaultProps () {
-    return {
-      obfuscate: false
-    };
-  },
+export const createMailtoLink = (email, headers) => {
+  let link = `mailto:${email}`;
+  if (headers) {
+    link += `?${toSearchString(headers)}`;
+  }
+  return link;
+};
+
+class Mailto extends Component {
 
   render () {
-    return (this.props.obfuscate) ? this._renderObfuscatedLink() : this._renderLink();
-  },
-
-  _renderLink () {
-    return <a href={`mailto:${this.props.email}`} {...this.props}>{this.props.children}</a>
-  },
-
-  _renderObfuscatedLink () {
-    return <a onClick={this._handleClick} href="mailto:obfuscated" {...this.props}>{this.props.children}</a>
-  },
-
-  _handleClick (e) {
-    e.preventDefault();
-    document.location.href = `mailto:${this.props.email}`;
+    return this.props.obfuscate ?
+      this.renderObfuscatedLink() :
+      this.renderLink();
   }
 
-});
+  renderLink () {
+    const { email, obfuscate, headers, children, ...others } = this.props;
+    return (
+      <a href={createMailtoLink(email, headers)} {...others}>
+        {children}
+      </a>
+    );
+  }
+
+  renderObfuscatedLink () {
+    const { email, obfuscate, headers, children, ...others } = this.props;
+    return (
+      <a onClick={this.handleClick.bind(this)} href="mailto:obfuscated" {...others}>
+        {children}
+      </a>
+    );
+  }
+
+  handleClick (event) {
+    event.preventDefault();
+    const { email, headers } = this.props;
+    window.location.href = createMailtoLink(email, headers);
+  }
+}
+
+Mailto.propTypes = {
+  children: PropTypes.node.isRequired,
+  email: PropTypes.string.isRequired,
+  headers: PropTypes.object,
+  obfuscate: PropTypes.bool
+};
+
+Mailto.defaultProps = {
+  obfuscate: false
+};
 
 export default Mailto;

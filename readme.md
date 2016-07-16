@@ -33,6 +33,7 @@ Property  | Type      | Argument     | Default   | Description
 ----------|-----------|--------------|-----------|------------
 email     | `string`  | `<required>` | `null`    | email address of the intended recipient.
 obfuscate | `boolean` | `<optional>` | `false`   | show the email address in the status bar.
+headers   | `object`  | `<optional>` | `null`    | any standard mail header fields. The most commonly-used of these are "subject", "cc", and "body" (which is not a true header field, but allows you to specify a short content message for the new email).
 
 
 ## Developing
@@ -49,5 +50,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 
 ## License
-Copyright (c) 2015 [Jason Bellamy ](http://jasonbellamy.com)  
+Copyright (c) 2015 [Jason Bellamy ](http://jasonbellamy.com)
 Licensed under the MIT license.
