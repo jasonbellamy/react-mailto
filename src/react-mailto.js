@@ -50,12 +50,13 @@ class Mailto extends Component {
 
 Mailto.propTypes = {
   children: PropTypes.node.isRequired,
-  email: PropTypes.string.isRequired,
+  email: PropTypes.string,
   headers: PropTypes.object,
   obfuscate: PropTypes.bool
 };
 
 Mailto.defaultProps = {
+  email: '',
   obfuscate: false
 };
 

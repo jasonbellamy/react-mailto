@@ -104,12 +104,13 @@ var Mailto = function (_Component) {
 
 Mailto.propTypes = {
   children: _react.PropTypes.node.isRequired,
-  email: _react.PropTypes.string.isRequired,
+  email: _react.PropTypes.string,
   headers: _react.PropTypes.object,
   obfuscate: _react.PropTypes.bool
 };
 
 Mailto.defaultProps = {
+  email: '',
   obfuscate: false
 };
 
