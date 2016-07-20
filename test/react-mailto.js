@@ -23,4 +23,9 @@ describe('Mailto component', () => {
     const component = shallowOutput(Mailto, {email: 'j@sonbellamy.com', headers: { subject }});
     expect(component.props.href).to.equal(`mailto:j@sonbellamy.com?subject=${encodeURIComponent(subject)}`);
   });
+
+  it('should create a link without the email prop', () => {
+    const component = shallowOutput(Mailto, {});
+    expect(component.props.href).to.equal('mailto:');
+  });
 });
