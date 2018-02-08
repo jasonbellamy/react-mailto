@@ -13,6 +13,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -24,7 +28,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var toSearchString = exports.toSearchString = function toSearchString() {
-  var searchParams = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+  var searchParams = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
   return Object.keys(searchParams).map(function (key) {
     return key + '=' + encodeURIComponent(searchParams[key]);
@@ -45,7 +49,7 @@ var Mailto = function (_Component) {
   function Mailto() {
     _classCallCheck(this, Mailto);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Mailto).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Mailto.__proto__ || Object.getPrototypeOf(Mailto)).apply(this, arguments));
   }
 
   _createClass(Mailto, [{
@@ -56,13 +60,12 @@ var Mailto = function (_Component) {
   }, {
     key: 'renderLink',
     value: function renderLink() {
-      var _props = this.props;
-      var email = _props.email;
-      var obfuscate = _props.obfuscate;
-      var headers = _props.headers;
-      var children = _props.children;
-
-      var others = _objectWithoutProperties(_props, ['email', 'obfuscate', 'headers', 'children']);
+      var _props = this.props,
+          email = _props.email,
+          obfuscate = _props.obfuscate,
+          headers = _props.headers,
+          children = _props.children,
+          others = _objectWithoutProperties(_props, ['email', 'obfuscate', 'headers', 'children']);
 
       return _react2.default.createElement(
         'a',
@@ -73,13 +76,12 @@ var Mailto = function (_Component) {
   }, {
     key: 'renderObfuscatedLink',
     value: function renderObfuscatedLink() {
-      var _props2 = this.props;
-      var email = _props2.email;
-      var obfuscate = _props2.obfuscate;
-      var headers = _props2.headers;
-      var children = _props2.children;
-
-      var others = _objectWithoutProperties(_props2, ['email', 'obfuscate', 'headers', 'children']);
+      var _props2 = this.props,
+          email = _props2.email,
+          obfuscate = _props2.obfuscate,
+          headers = _props2.headers,
+          children = _props2.children,
+          others = _objectWithoutProperties(_props2, ['email', 'obfuscate', 'headers', 'children']);
 
       return _react2.default.createElement(
         'a',
@@ -91,9 +93,9 @@ var Mailto = function (_Component) {
     key: 'handleClick',
     value: function handleClick(event) {
       event.preventDefault();
-      var _props3 = this.props;
-      var email = _props3.email;
-      var headers = _props3.headers;
+      var _props3 = this.props,
+          email = _props3.email,
+          headers = _props3.headers;
 
       window.location.href = createMailtoLink(email, headers);
     }
@@ -103,10 +105,10 @@ var Mailto = function (_Component) {
 }(_react.Component);
 
 Mailto.propTypes = {
-  children: _react.PropTypes.node.isRequired,
-  email: _react.PropTypes.string.isRequired,
-  headers: _react.PropTypes.object,
-  obfuscate: _react.PropTypes.bool
+  children: _propTypes2.default.node.isRequired,
+  email: _propTypes2.default.string.isRequired,
+  headers: _propTypes2.default.object,
+  obfuscate: _propTypes2.default.bool
 };
 
 Mailto.defaultProps = {

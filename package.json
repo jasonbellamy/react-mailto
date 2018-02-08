@@ -36,10 +36,11 @@
     "babel-preset-react": "^6.11.1",
     "chai": "^3.5.0",
     "core-js": "^0.9.6",
-    "mocha": "^2.3.0",
-    "react": "^15.2.1",
-    "react-addons-test-utils": "^15.2.1",
-    "react-shallow-output": "^0.2.0"
+    "mocha": "^5.0.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-test-renderer": "^16.2.0"
   },
   "keywords": [
     "react",

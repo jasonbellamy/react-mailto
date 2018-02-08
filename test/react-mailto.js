@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import Mailto from '../src/react-mailto.js';
-import shallowOutput from 'react-shallow-output';
+import shallowOutput from './react-shallow-output.js';
 
 describe('Mailto component', () => {
   it('should hide the email address if obfuscate is true', () => {
